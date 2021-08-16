@@ -2,7 +2,6 @@ import random
 import os
 import time
 
-
 os.system("cls")
 print('\n\n\t### GUESS THE NUMBER!!! ###\n\n\t\tMAN vs CPU'
         '\n\n\t  Will YOU be able to WIN')
