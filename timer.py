@@ -7,6 +7,7 @@ import time
 import os
 
 def convertion(hours, minutes, seconds):
+    # convert the user given time
     hours = hours * 3600
     minutes = minutes * 60
     time_to_convert = hours + minutes + seconds
@@ -17,7 +18,8 @@ def convertion(hours, minutes, seconds):
 
     return h, m, s
 
-def draw_crono(hours, minutes, seconds):
+def draw_timer(hours, minutes, seconds):
+    # draw the timer 
     for i in range(hours + 1):    # +1 to get into the loop when h = 0
         if minutes == 0 and seconds == 0:
             minutes = 60
@@ -30,7 +32,7 @@ def draw_crono(hours, minutes, seconds):
                 os.system('cls')
                 seconds -= 1
                 print('        ________________\n'
-                      '        |# CRONOMETER #|\n'
+                      '        |#  PROTIMER  #|\n'
                       '        """"""""""""""""\n'
                       '        |#  '
                      f'{str(hours).zfill(2)}:'
@@ -43,12 +45,13 @@ def draw_crono(hours, minutes, seconds):
                 time.sleep(1)
 
 def set_time():
+    # set the timer with a user given time
     while True:
         max_time = 99*3600 + 59*60 + 59  # maximun time supported 99h:59m:59s
         hrs = ''
         while hrs.isdigit() == False or int(hrs) < 0:
             os.system('cls')
-            print('    ## CRONOMETER ##\n')   
+            print('    ## TIMER ##\n')   
             hrs = input('>> |SET the TIMER| --- HOURS: ')
         total_time = int(hrs)*3600
         if total_time > max_time:
@@ -58,7 +61,7 @@ def set_time():
         mins = ''
         while mins.isdigit() == False or int(mins) < 0:
             os.system('cls')
-            print('    ## CRONOMETER ##\n')   
+            print('    ## TIMER ##\n')   
             print(f'|SET the TIMER| --- HOURS -> {hrs}')
             mins = input('>> |SET the TIMER| --- MINUTES: ')
         total_time = total_time + int(mins)*60
@@ -69,7 +72,7 @@ def set_time():
         secs = ''
         while secs.isdigit() == False or int(secs) < 0:
             os.system('cls')
-            print('    ## CRONOMETER ##\n')   
+            print('    ## TIMER ##\n')   
             print(f'|SET the TIMER| --- HOURS -> {hrs}')
             print(f'|SET the TIMER| --- MINUTES -> {mins}')
             secs = input('>> |SET the TIMER| --- SECONDS: ')
@@ -87,12 +90,12 @@ def main():
         # set the size for the script´s window
         hrs, mins, secs = set_time()
         h, m, s = convertion(hrs, mins, secs)
-        draw_crono(h, m, s)
+        draw_timer(h, m, s)
         resp = ""
         while resp != "y" and resp != "n":
             os.system('cls')
             print('        ________________\n'
-                  '        |# CRONOMETER #|\n'
+                  '        |#  PROTIMER  #|\n'
                   '        """"""""""""""""\n'
                   '        |#  '
                   '00:00:00'
