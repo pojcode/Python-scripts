@@ -32,7 +32,7 @@ def set_time():
 
 def draw_timer(time_to_crono, value_to_crono, mode_selected):
     # print the timer
-    time_total = time.time() + time_to_crono
+    time_total = time.time() + time_to_crono 
     time_now = time.time()
     while int(time_total) >= int(time_now):
         os.system('cls')
