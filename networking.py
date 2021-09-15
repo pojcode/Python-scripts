@@ -1,13 +1,16 @@
-# SSH to multiple devices from a .txt file with the device´s IPs
+'''
+SSH to multiple devices from a .txt file with the device´s IPs
+In this case the script get values for the command show ip interface brief
+'''
 from netmiko import ConnectHandler
  
-with open('devices_IPs.txt') as file:
-    for ip in file:
+with open('devices_IPs.txt') as file_obj:
+    for ip in file_obj:
         router = {
             'device_type': 'cisco_ios',
             'ip': ip.strip(),
-            'username': 'cisco',
-            'password': 'cisco',
+            'username': 'cisco',  # your username here
+            'password': 'cisco',  # your password here
             }
 
         net_connect = ConnectHandler(**router)
