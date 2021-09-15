@@ -1,5 +1,5 @@
 '''
-Scrip which after a time given by user, send a chosen command to OS
+Script which after a time given by user, send a chosen command to OS
 timer is made using the Epoch time instead of time module to increase accuracy
 '''
 import time
